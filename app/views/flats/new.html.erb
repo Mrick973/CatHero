@@ -1,0 +1,7 @@
+<h2>Cadastre seu flat :</h2>
+
+<%= simple_form_for @flat do |f| %>
+  <%= f.input :description, label: 'description' %>
+  <%= f.input :address, label: 'address' %>
+  <%= f.button :submit %>
+<% end %>

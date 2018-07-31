@@ -1,0 +1,6 @@
+<h1>All Flats</h1>
+
+<% @flats.each do |flat| %>
+  <h2><%= link_to flat[:description], flat_path(flat)%></h2>
+  <% end %>
+

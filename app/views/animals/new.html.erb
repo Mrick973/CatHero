@@ -1,0 +1,8 @@
+<h2>Cadastre seus animais :</h2>
+
+<%= simple_form_for @animal do |f| %>
+  <%= f.input :species, label: 'species' %>
+  <%= f.input :name, label: 'name' %>
+  <%= f.button :submit %>
+<% end %>
+<%= link_to 'Add your Flat', new_flat_path, class: "btn btn-primary" %>
