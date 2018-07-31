@@ -27,6 +27,7 @@ F1 = Flat.create!(description:'Mussum Ipsum, cacilds vidis litro abertis.', user
 F2 = Flat.create!(description:'Si num tem leite então bota uma pinga aí cumpadi', user_id: '2')
 F3 = Flat.create!(description:'Toma um mé que o mundo vai girarzis!', user_id: '3')
 F4 = Flat.create!(description:'Diuretics paradis num copo é motivis de denguis.', user_id: '4')
+F5 = Flat.create!(description:'Diuretics paradis nm copo é motivis de denguis.', user_id: '5')
 
 Floquinho.user_id = Maria.id 
 F1.user_id = Maria.id 
