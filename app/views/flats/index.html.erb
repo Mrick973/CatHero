@@ -2,6 +2,7 @@
 <table>
   <thead>
     <tr>
+      <th> Users </th>
       <th> Address </th>
       <th> Description </th>
       <th> Link </th>
@@ -11,6 +12,9 @@
   <tbody>
             <% @flats.each do |flat| %>
               <tr>
+                <td>
+                  <%= flat.user %>
+                </td>
                 <td>
                   <%= flat.address %>
                 </td>
@@ -29,9 +33,3 @@
 </table>
 
 <!-- , new_flat_booking_path -->
-
-<hr>
-<% @flats.user.each do |flat| %>
-<%= flat.name %>
-<% end %>
-

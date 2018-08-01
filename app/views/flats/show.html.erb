@@ -1,15 +1,7 @@
-<p>
-  <strong>Name:</strong>
-  <%= @flat.address %>
-</p>
 
-<p>
-  <strong>User:</strong>
-  <%=  %>
-</p>
+<h1>My Bookings</h1>
+      <%= @booking.flat.description %>
 
-<%= link_to 'Booking'%> 
-<%= link_to 'Back', flats_path %>
+      <%= @booking.flat.address %>
 
-<!-- edit_restaurant_path(@restaurant) -->
-<!-- flat.user.email -->
+           <%= link_to 'Back', root_path, class: "btn btn-primary" %>
