@@ -1,8 +1,12 @@
-<h2>Creates a booking:</h2>
+<div class="home-banner">
+  <div class="container">
+    <h2>Creates a booking:</h2>
 
-<%= simple_form_for [@flat, @booking] do |f| %>
+    <%= simple_form_for [@flat, @booking] do |f| %>
 
-  <%= f.input :start_date, label: 'date' %>
-  <%= f.input :end_date, label: 'date ' %>
-  <%= f.button :submit %>
-<% end %>
+      <%= f.input :start_date, label: 'date' %>
+      <%= f.input :end_date, label: 'date ' %>
+      <%= f.button :submit %>
+    <% end %>
+  </div>
+</div>

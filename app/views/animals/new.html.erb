@@ -1,9 +1,13 @@
-<h2>Cadastre seus animais :</h2>
+<div class="home-banner">
+  <div class="container">
+    <h2>Cadastre seus animais :</h2>
 
-<%= simple_form_for @animal do |f| %>
+    <%= simple_form_for @animal do |f| %>
 
-  <%= f.input :name, label: 'name' %>
-  <%= f.input :species, label: 'species' %>
-  <%= f.button :submit %>
-<% end %>
-<%= link_to 'Caregiver', new_flat_path, class: "btn btn-primary" %>
+      <%= f.input :name, label: 'name' %>
+      <%= f.input :species, label: 'species' %>
+      <%= f.button :submit %>
+    <% end %>
+    <%= link_to 'Caregiver', new_flat_path, class: "btn btn-primary" %>
+  </div>
+</div>

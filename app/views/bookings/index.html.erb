@@ -1,6 +1,9 @@
+<div class="home-banner">
+  <div class="container">
+    <h1>My Bookings</h1>
 
-<h1>My Bookings</h1>
-
-<% @bookings.each do |booking| %>
-      <h4> Name : <%=booking[:status]%>---Email : <%=booking[:start_date]%>---<%=booking[:end_date]%></h4>
-      <% end %>
+    <% @bookings.each do |booking| %>
+          <h4> Name : <%=booking[:status]%>---Email : <%=booking[:start_date]%>---<%=booking[:end_date]%></h4>
+          <% end %>
+  </div>
+</div>
