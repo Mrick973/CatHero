@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_flat, only: [ :new, :show, :create, :edit, :update, :destroy]
 
   def new
+    @user = current_user
     @booking = Booking.new
   end
 
@@ -18,7 +19,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to flats_path(@booking.flat)
     else
-      render :new
+      render 'flats/show'
     end
   end
 
@@ -42,7 +43,7 @@ class BookingsController < ApplicationController
   private
 
   def set_flat
-    @flat = Flat.find(params[:flat_id])  
+    @flat = Flat.find(params[:flat_id])
   end
 
   def booking_params
