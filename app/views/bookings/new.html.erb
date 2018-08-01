@@ -1,8 +1,7 @@
 <h2>Creates a booking:</h2>
 
-<%= simple_form_for [@booking] do |f| %>
+<%= simple_form_for @booking do |f| %>
 
-  <%= f.input :status, label: 'status' %>
   <%= f.input :start_date, label: 'date' %>
   <%= f.input :end_date, label: 'date ' %>
   <%= f.button :submit %>
