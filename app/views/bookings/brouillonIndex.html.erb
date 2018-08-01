@@ -1,18 +1,22 @@
-<% @users.each do |user| %>
-      <h4> Name : <%=user[:name]%>---Email : <%=user[:email]%>---<%=user[:address]%><%= link_to "Show", booking_path, class: "btn btn-success" %><%= link_to "Edit", edit_booking_path, class: "btn btn-success" %><%= link_to "Destroy", _booking_path, class: "btn btn-success" %></h4>
-      <% end %>
-      
-
-
-      <hr>
-<% @flats.user.each do |flat| %>
-<%= flat.name %>
-<% end %>
+<div class="home-banner">
+  <div class="container">
+    <% @users.each do |user| %>
+          <h4> Name : <%=user[:name]%>---Email : <%=user[:email]%>---<%=user[:address]%><%= link_to "Show", booking_path, class: "btn btn-success" %><%= link_to "Edit", edit_booking_path, class: "btn btn-success" %><%= link_to "Destroy", _booking_path, class: "btn btn-success" %></h4>
+          <% end %>
 
 
 
-<h1>My Bookings</h1>
+          <hr>
+    <% @flats.user.each do |flat| %>
+    <%= flat.name %>
+    <% end %>
 
-<% @bookings.each do |booking| %>
-      <h4> Name : <%=booking[:status]%>---Email : <%=booking[:start_date]%>---<%=booking[:end_date]%></h4>
-      <% end %>
+
+
+    <h1>My Bookings</h1>
+
+    <% @bookings.each do |booking| %>
+          <h4> Name : <%=booking[:status]%>---Email : <%=booking[:start_date]%>---<%=booking[:end_date]%></h4>
+          <% end %>
+  </div>
+</div>
