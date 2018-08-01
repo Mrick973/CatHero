@@ -19,12 +19,13 @@ class FlatsController < ApplicationController
     end
   end
 
-  def show 
+  def show
   end
 
   def destroy
+    @flat = Flat.find(params[:id])
     @flat.destroy
-    redirect_to flats, notice: 'Booking was successfully destroyed.'
+    redirect_to flats_path, notice: 'Booking was successfully destroyed.'
   end
 
  private
