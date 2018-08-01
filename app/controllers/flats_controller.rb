@@ -13,7 +13,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user = @user
     if @flat.save
-       redirect_to new_flat_booking_path(@flat)
+       redirect_to flats_path(@flat)
     else
       render :new
     end
