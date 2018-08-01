@@ -1,13 +1,48 @@
-<div class="home-banner">
+<!-- <div class="home-banner">
   <div class="container">
-
+ -->
 
     <h1>All Flats</h1>
+
+<!-- 
+  </div> -->
+
+</div>
+    <table>
+      <thead>
+        <tr>
+          <th> Users </th>
+          <th> Address </th>
+          <th> Description </th>
+          <th> Link </th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+                <% @flats.each do |flat| %>
+                  <tr>
+                    <td>
+                      <%= flat.user.name %>
+                    </td>
+                    <td>
+                      <%= flat.address %>
+                    </td>
+                    <td>
+                      <%= flat.description %>
+                    </td>
+                    <td>
+                      <%= link_to 'Booking', new_flat_booking_path(flat), class: "btn btn-primary" %>
+                    </td>
+                    <td>
+                      <%= link_to 'Destroy',  { action: :destroy, id: flat.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </td>
+                  </tr>
+                  <% end %>
+              </tbody>
+    </table>
    <div
   id="map"
   style="width: 50%;
   height: 300px;"
   data-markers="<%= @markers.to_json %>">
   </div>
-  </div>
-</div>
