@@ -22,7 +22,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user = @user
     if @flat.save
-       redirect_to new_flat_booking_path(@flat)
+       redirect_to flats_path(@flat)
     else
       render :new
     end
@@ -32,14 +32,15 @@ class FlatsController < ApplicationController
   end
 
   def destroy
+    @flat = Flat.find(params[:id])
     @flat.destroy
-    redirect_to flats, notice: 'Booking was successfully destroyed.'
+    redirect_to flats_path, notice: 'Booking was successfully destroyed.'
   end
 
  private
 
   def set_user
-    # @user = User.find(params[:user_id])
+    #@user = User.find(params[:user])
     @user = current_user
   end
 
