@@ -1,6 +1,6 @@
-#Booking.delete_all
-#Flat.delete_all
-#Animal.delete_all
+Booking.delete_all
+Flat.delete_all
+Animal.delete_all
 User.delete_all
 
 
