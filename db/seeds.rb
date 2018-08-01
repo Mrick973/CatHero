@@ -1,50 +1,29 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
-Maria = User.create!(email: 'abc@gmail.com', phone: '555-5555', name: 'Maria', address: 'Rua ABC, 123', description: 'Mussum Ipsum, cacilds vidis litro abertis', password: 'hemrickdd')
-Maria.save
-Joao = User.create!(email: 'wsx@gmail.com', phone: '555-5556', name: 'João' , address: 'Rua XYZ, 123', description: 'Posuere libero varius', password: 'hemrickdd')
-Joao.save
-Paulo = User.create!(email: 'edc@gmail.com', phone: '555-5557', name: 'Paulo', address: 'Rua EDC, 123', description: 'Nullam a nisl ut ante blandit hendrerit. Aenean sit amet nisi.', password: 'hemrickdd')
-Paulo.save
-Joana = User.create!(email: 'rfv@gmail.com', phone: '555-5558', name: 'Joana', address: 'Rua HYN, 123', description: 'Tá deprimidis, eu conheço uma cachacis que pode alegrar sua vidis', password: 'hemrickdd')
-Joana.save
-Lucia = User.create!(email: 'tgb@gmail.com', phone: '555-5559', name: 'Lucia', address: 'Rua OLP, 123', description: 'Sed non consequat odio', password: 'hemrickdd')
-Lucia.save
+#Booking.delete_all
+#Flat.delete_all
+#Animal.delete_all
+User.delete_all
 
 
-Floquinho = Animal.create!(species: 'Persa', name: 'Floquinho', user_id: '1')
-Biruta = Animal.create!(species: 'Siamês', name: 'Biruta', user_id: '2')
-Bela = Animal.create!(species: 'Ragdoll', name: 'Bela', user_id: '3')
-Cherry = Animal.create!(species: 'Maine Coon', name: 'Cherry', user_id: '4')
+maria = User.create!(email: 'abc@gmail.com', phone: '555-5555', name: 'Maria', password: 'password')
+pedro = User.create!(email: 'pedro@gmail.com', phone: '352-5555', name: 'Pedro', password: 'password')
+joao = User.create!(email: 'wsx@gmail.com', phone: '555-5556', name: 'João' , password: 'password')
+joana = User.create!(email: 'rfv@gmail.com', phone: '555-5558', name: 'Joana', password: 'password')
+lucia = User.create!(email: 'tgb@gmail.com', phone: '555-5559', name: 'Lucia', password: 'password')
 
-F1 = Flat.create!(description:'Mussum Ipsum, cacilds vidis litro abertis.', user_id: '1')
-F2 = Flat.create!(description:'Si num tem leite então bota uma pinga aí cumpadi', user_id: '2')
-F3 = Flat.create!(description:'Toma um mé que o mundo vai girarzis!', user_id: '3')
-F4 = Flat.create!(description:'Diuretics paradis num copo é motivis de denguis.', user_id: '4')
-F5 = Flat.create!(description:'Diuretics paradis nm copo é motivis de denguis.', user_id: '5')
 
-Floquinho.user_id = Maria.id 
-F1.user_id = Maria.id 
-Floquinho.save
-F1.save
+floquinho = Animal.create!(species: 'Persa', name: 'Floquinho', user: maria )
+biruta = Animal.create!(species: 'Siamês', name: 'Biruta', user: joao )
+bela = Animal.create!(species: 'Ragdoll', name: 'Bela', user: joana)
+cherry = Animal.create!(species: 'Maine Coon', name: 'Cherry', user: lucia)
 
-Biruta.user_id = Joao.id 
-F2.user_id = Joao.id 
-Biruta.save
-F2.save
+f1 = Flat.create!(description:'Mussum Ipsum, cacilds vidis litro abertis.', address:'Rua Pedralva, 171, alto de pinheiro, São Paulo', user: maria)
+f2 = Flat.create!(description:'Si num tem leite então bota uma pinga aí cumpadi', address:'Rua Mourato Coelho, 1404, São Paulo', user: joao)
+f3 = Flat.create!(description:'Toma um mé que o mundo vai girarzis!', address:'rua tabapua, 542, itaim bibi, São Paulo', user: joana)
+f4 = Flat.create!(description:'Diuretics paradis num copo é motivis de denguis.', address:'Rua Pedroso alvarenga, 420, itaim bibi, São Paulo', user: lucia)
+f5 = Flat.create!(description:'Diuretics paradis nm copo é motivis de denguis.', address:'Av. Paulista, 1000, são paulo', user: maria)
 
-Bela.user_id = Paulo.id 
-F3.user_id = Paulo.id 
-Bela.save
-F3.save
 
-Cherry.user_id = Joana.id
-F4.user_id = Joana.id 
-Cherry.save
-F4.save
+Booking.create!(status: true, start_date: Date.new(2018,9,1), end_date: Date.new(2018,10,1), animal: floquinho, flat: f1)
+Booking.create!(status: true, start_date: Date.new(2018,9,2), end_date: Date.new(2018,9,25), animal: biruta, flat: f2)
+Booking.create!(status: true, start_date: Date.new(2018,9,3), end_date: Date.new(2018,11,1), animal: bela, flat: f3)
+
