@@ -6,25 +6,35 @@ class FlatsController < ApplicationController
   end
 
   def index
-    @flats = Flat.all
+    # @flats = Flat.all # before add the code in lines [10..18]
+    @flats = Flat.where.not(latitude: nil, longitude: nil)
+
+    @markers = @flats.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude#,
+        # infoWindow: { content: render_to_string(partial: "/flats/map_box", locals: { flat: flat }) }
+      }
+    end
   end
 
   def create
     @flat = Flat.new(flat_params)
     @flat.user = @user
     if @flat.save
-       redirect_to new_flat_booking_path(@flat)
+       redirect_to flats_path(@flat)
     else
       render :new
     end
   end
 
-  def show 
+  def show
   end
 
   def destroy
+    @flat = Flat.find(params[:id])
     @flat.destroy
-    redirect_to flats, notice: 'Booking was successfully destroyed.'
+    redirect_to flats_path, notice: 'Booking was successfully destroyed.'
   end
 
  private
