@@ -1,15 +1,55 @@
-<h1>My Perfil</h1>
+<div class="container">
+  <div class="col-lg col-sm">
+      <div class="card hovercard">
+          <div class="card-background">
+              <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/8/">
+              <!-- http://lorempixel.com/850/280/people/9/ -->
+          </div>
+          <div class="useravatar">
+              <img alt="" src="http://lorempixel.com/100/100/people/8/">
+          </div>
+          <div class="card-info"> <span class="card-title"><strong><%= @user.name %></strong></span>
 
-<h2>Bienvenue <strong><%= @user.name %></strong></h2>
+          </div>
+      </div>
+      <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+          <div class="btn-group" role="group">
+              <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+                  <div class="hidden-xs">Pets</div>
+              </button>
+          </div>
+          <div class="btn-group" role="group">
+              <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-heart" aria-hidden="true"></span>
+                  <div class="hidden-xs">Flats</div>
+              </button>
+          </div>
+          <div class="btn-group" role="group">
+              <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                  <div class="hidden-xs">Help</div>
+              </button>
+          </div>
+      </div>
 
-<% @user.animals.each do |x| %>
+          <div class="well">
+        <div class="tab-content">
+          <div class="tab-pane fade in active" id="tab1">
+          <% @user.animals.each do |x| %>
           <h2> Vous avez enregistré :<strong><%=x[:name]%></strong><%= link_to 'Add', new_animal_path, class: "btn btn-primary" %> <%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %></h2>
           <% end %>
-
-<% @user.flats.each do |x| %>
+          </div>
+          <div class="tab-pane fade in" id="tab2">
+          <% @user.flats.each do |x| %>
           <h2> Address :<strong><%=x[:address]%></strong><%= link_to 'Add a new flat', new_flat_path, class: "btn btn-primary" %> <%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %></h2>
           <% end %>
-<%= link_to 'Trouver son bonheur', flats_path, class: "btn btn-primary" %>
+            <%= link_to 'Trouver son bonheur', flats_path, class: "btn btn-primary" %>
+          </div>
+          <div class="tab-pane fade in" id="tab3">
+            <h2>You need help?</h2>
+            <h3>cathero@cathero.com</h3>
+          </div>
+        </div>
+      </div>
 
-<!-- ,{ action: :destroy, id: @user.animals.last.id} -->
-<!-- ,{ action: :destroy, id: @user.flats.last.id} -->
+      </div>
+      </div>
+
