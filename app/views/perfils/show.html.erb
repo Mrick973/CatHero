@@ -11,7 +11,7 @@
           <div class="card-info"> <span class="card-title"><strong><%= @user.name %></strong>
             <%= link_to 'Add a new flat', new_flat_path, class: "btn btn-primary" %>
             <%= link_to 'Add a new animal', new_animal_path, class: "btn btn-primary" %>
-            
+
           </span>
           </div>
       </div>
@@ -41,8 +41,8 @@
           <% end %>
           </div>
           <div class="tab-pane fade in" id="tab2">
-          <% @user.flats.each do |x| %>
-          <h2> Address :<strong><%=x[:address]%></strong><%= link_to 'Add a new flat', new_flat_path, class: "btn btn-primary" %> <%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %></h2>
+          <% @user.flats.each do |flat| %>
+          <h2> Address :<strong><%=flat[:address]%></strong><%= link_to 'Add a new flat', new_flat_path, class: "btn btn-primary" %> <%= link_to 'Destroy', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %></h2>
           <% end %>
             <%= link_to 'Trouver son bonheur', flats_path, class: "btn btn-primary" %>
           </div>
