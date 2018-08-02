@@ -16,11 +16,11 @@ biruta = Animal.create!(species: 'Siamês', name: 'Biruta', user: joao )
 bela = Animal.create!(species: 'Ragdoll', name: 'Bela', user: joana)
 cherry = Animal.create!(species: 'Maine Coon', name: 'Cherry', user: lucia)
 
-f1 = Flat.create!(description:'Mussum Ipsum, cacilds vidis litro abertis.', address:'Rua Pedralva, 171, alto de pinheiro, São Paulo', user: maria)
-f2 = Flat.create!(description:'Si num tem leite então bota uma pinga aí cumpadi', address:'Rua Mourato Coelho, 1404, São Paulo', user: joao)
-f3 = Flat.create!(description:'Toma um mé que o mundo vai girarzis!', address:'rua tabapua, 542, itaim bibi, São Paulo', user: joana)
-f4 = Flat.create!(description:'Diuretics paradis num copo é motivis de denguis.', address:'Rua Pedroso alvarenga, 420, itaim bibi, São Paulo', user: lucia)
-f5 = Flat.create!(description:'Diuretics paradis nm copo é motivis de denguis.', address:'Av. Paulista, 1000, são paulo', user: maria)
+f1 = Flat.create!(description:'Mussum Ipsum, cacilds vidis litro abertis.', address:'Rua Pedralva, 171, alto de pinheiro, São Paulo', user: maria, remote_photo_url: 'http://res.cloudinary.com/ddtxrl2us/image/upload/c_fill,h_100,w_170/v1533238811/wclcxfrkkrtromtqxs77.jpg')
+f2 = Flat.create!(description:'Si num tem leite então bota uma pinga aí cumpadi', address:'Rua Mourato Coelho, 1404, São Paulo', user: joao, remote_photo_url: "http://res.cloudinary.com/ddtxrl2us/image/upload/v1533237242/cat_hero/maldivas.jpg")
+f3 = Flat.create!(description:'Toma um mé que o mundo vai girarzis!', address:'rua tabapua, 542, itaim bibi, São Paulo', user: joana, remote_photo_url: "https://res.cloudinary.com/ddtxrl2us/image/upload/v1533237242/cat_hero/download_1.jpg")
+f4 = Flat.create!(description:'Diuretics paradis num copo é motivis de denguis.', address:'Rua Pedroso alvarenga, 420, itaim bibi, São Paulo', user: lucia, remote_photo_url: "https://res.cloudinary.com/ddtxrl2us/image/upload/v1533237242/cat_hero/download.jpg")
+f5 = Flat.create!(description:'Diuretics paradis nm copo é motivis de denguis.', address:'Av. Paulista, 1000, são paulo', user: maria, remote_photo_url: "https://res.cloudinary.com/ddtxrl2us/image/upload/v1533237242/cat_hero/beco.jpg")
 
 
 Booking.create!(status: true, start_date: Date.new(2018,9,1), end_date: Date.new(2018,10,1), animal: floquinho, flat: f1)
