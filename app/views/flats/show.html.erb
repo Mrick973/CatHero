@@ -1,9 +1,22 @@
+<div class="container">
+  <h1><%= @flat.address %>Flats</h1>
 
-  <div class="container">
-    <h1>My Bookings</h1>
-          <%= @booking.flat.description %>
+  <div>
+    <tr>
+      <td>
+        <%= cl_image_tag @flat.photo, height: 100, width: 170, crop: :fill %>
+      </td>
 
-          <%= @booking.flat.address %>
 
-               <%= link_to 'Back', flats_path, class: "btn btn-primary" %>
+      <td>
+        <%= @flat.address %>
+      </td>
+      <td>
+        <%= @flat.description %>
+      </td>
+      <td>
+        <%= link_to 'Back', flats_path, class: "btn btn-primary" %>
+      </td>
+    </tr>
   </div>
+</div>

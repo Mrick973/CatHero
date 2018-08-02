@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
- before_action :set_user, only: [:new, :show, :index, :create, :destroy]
+ before_action :set_user, only: [:new, :index, :create, :destroy]
 
   def new
     @flat = @user.flats.new
@@ -29,6 +29,7 @@ class FlatsController < ApplicationController
   end
 
   def show
+ @flat = Flat.find(params[:id])
   end
 
   def destroy

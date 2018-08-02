@@ -22,7 +22,7 @@
         <% @flats.each do |flat| %>
                   <tr>
                      <td>
-                      <%= cl_image_tag flat.photo, height: 100, width: 170, crop: :fill %>
+                      <%= link_to (cl_image_tag flat.photo, height: 100, width: 170, crop: :fill), flat_path(flat) %>
                     </td>
                     <td>
                       <%= flat.user.name %>
