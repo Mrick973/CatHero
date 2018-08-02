@@ -20,8 +20,8 @@ class PerfilsController < ApplicationController
 
 
   def destroy
-    @flat = Flat.find(params[:id])
-    @flat.destroy
+    @user = current_user
+    @user.animals.destroy
     redirect_to flats_path, notice: 'Booking was successfully destroyed.'
   end
 
