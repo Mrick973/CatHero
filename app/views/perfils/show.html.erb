@@ -1,2 +1,10 @@
-<h1>Perfils#show</h1>
-<p>Find me in app/views/perfils/show.html.erb</p>
+<h1>My Perfil</h1>
+
+<h2>Bienvenue <strong><%= @user.name %></strong></h2>
+
+<h2>Vous avez enregistré <strong><%= @user.animals.first.name %></strong></h2>
+<% @user.flats.each do |x| %>
+          <h2> Address :<strong><%=x[:address]%></strong></h2>
+          <% end %>
+<%= link_to 'Trouver son bonheur', flats_path, class: "btn btn-primary" %>
+

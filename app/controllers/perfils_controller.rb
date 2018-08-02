@@ -1,25 +1,38 @@
 class PerfilsController < ApplicationController
-   before_action :set_cocktail, only: [:show]
+ before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  def index
+  def show
+    # @users
+    @user = current_user
   end
 
-    def show 
-    @users
-    end  
-    def create
-    @booking = Booking.new(booking_params)
-    if @booking.save
-      redirect_to booking_path(@booking)
-    else
-      render :new
-    end
+  def edit
   end
 
-      def set_booking
-      @booking = Booking.find(params[:id])
-    end
-    def booking_params
-      params.require(:booking).permit(:status, :start_date, :end_date)
-    end
+  def update #a modifier
+    # @user = current_user
+    # if @user.flats.update(user_params)
+    #   redirect_to @perfil, notice: 'Perfil was successfully updated.'
+    # else
+    #   render :edit
+    # end
+  end
+
+
+  def destroy
+    @flat = Flat.find(params[:id])
+    @flat.destroy
+    redirect_to flats_path, notice: 'Booking was successfully destroyed.'
+  end
+
+ private
+
+  def set_user
+    #@user = User.find(params[:user])
+    @user = current_user
+  end
+
+  def flat_params
+    params.require(:flat).permit(:description, :address)
+  end
 end
