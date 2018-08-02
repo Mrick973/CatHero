@@ -2,6 +2,7 @@ class BookingsController < ApplicationController
   # before_action :set_flat, only: [ :new, :show, :create, :destroy]
 
   def new
+    #@flat = Flat.find(params[:flat])
     @user = current_user
     @booking = Booking.new
   end
@@ -11,27 +12,31 @@ class BookingsController < ApplicationController
   end
 
   def show
+    @user = current_user
+    @bookings
   end
 
   def create
     @user = current_user
     @booking = Booking.new(booking_params)
-    @booking.user = @user
-    if @booking.save
-      redirect_to perfils_show_path
-    else
-      render 'flats/show'
-    end
+    @booking.save
+    # @booking.user = @user
+    # @booking.flat = @flat
+    # if @booking.save
+    #   redirect_to booking_path
+    # else
+    #   render 'flats/show'
+    # end
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
 
-  def destroy
-    @booking.destroy
-    redirect_to bookings, notice: 'Booking was successfully destroyed.'
-  end
+  # def destroy
+  #   @booking.destroy
+  #   redirect_to bookings, notice: 'Booking was successfully destroyed.'
+  # end
 
   private
 

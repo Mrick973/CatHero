@@ -1,12 +1,9 @@
-<h1>Bookings#create</h1>
-<p>Find me in app/views/bookings/create.html.erb</p>
-  <div class="container">
-    <h2>Creates a booking:</h2>
+<h1>Booking</h1>
 
-    <%= simple_form_for [@user, @booking] do |f| %>
 
-      <%= f.input :start_date, label: 'date' %>
-      <%= f.input :end_date, label: 'date ' %>
-      <%= f.button :submit %>
-    <% end %>
-  </div>
+ <%=Booking.last.start_date%>
+ <hr>
+ <%=Booking.last.end_date%>
+ <hr>
+ <h4>Your Cat <strong><%=Booking.last.animal.name%> </strong> will be with <strong><%=Booking.last.flat.user.name%></strong> at this address :<strong><%=Booking.last.flat.address%></strong></h4>
+ <%=Booking.count%>
