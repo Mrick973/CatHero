@@ -9,7 +9,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.new(animal_params)
     @animal.user = @user
     if @animal.save
-      redirect_to flats_path
+      redirect_to perfils_show_path
     else
       render :new
     end
