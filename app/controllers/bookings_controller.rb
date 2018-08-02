@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_flat, only: [ :new, :show, :create, :edit, :update, :destroy]
+  # before_action :set_flat, only: [ :new, :show, :create, :destroy]
 
   def new
     @user = current_user
@@ -14,10 +14,11 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @booking = Booking.new(booking_params)
-    @booking.flat = @flat
+    @booking.user = @user
     if @booking.save
-      redirect_to flats_path(@booking.flat)
+      redirect_to perfils_show_path
     else
       render 'flats/show'
     end
@@ -27,14 +28,6 @@ class BookingsController < ApplicationController
   end
 
 
-  def update
-    if @booking.update(booking_params)
-      redirect_to @booking, notice: 'Booking was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
   def destroy
     @booking.destroy
     redirect_to bookings, notice: 'Booking was successfully destroyed.'
@@ -42,9 +35,9 @@ class BookingsController < ApplicationController
 
   private
 
-  def set_flat
-    @flat = Flat.find(params[:flat_id])
-  end
+  # def set_flat
+  #   @flat = Flat.find(params[:flat])
+  # end
 
   def booking_params
     params.require(:booking).permit(:status, :start_date, :end_date, :flat_id, :animal_id)
