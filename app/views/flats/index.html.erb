@@ -2,48 +2,34 @@
 <div class="container">
 
 
-    <h1>All Flats</h1>
+  <h1 class="text-center">All Flats</h1>
 
-<!--
-  </div> -->
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th scope="col">Photo</th>
-          <th scope="col">Users</th>
-          <th scope="col">Address</th>
-          <th scope="col">Description</th>
-<!--           <th scope="col">Link</th> -->
-<!--           <th scope="col">Delete</th> -->
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @flats.each do |flat| %>
-                  <tr>
-                     <td>
-                      <%= link_to (cl_image_tag flat.photo, height: 100, width: 170, crop: :fill), flat_path(flat) %>
-                    </td>
-                    <td>
-                      <%= flat.user.name %>
-                    </td>
-                    <td>
-                      <%= flat.address %>
-                    </td>
-                    <td>
-                      <%= flat.description %>
-                    </td>
-                   
-                  </tr>
-                  <% end %>
-      </tbody>
-    </table>
-    </tbody>
-    </table>
+
+    <% @flats.each do |flat|%>
+      <div class="blog-card">
+        <div class="meta">
+          <div class="photo"><%= link_to (cl_image_tag flat.photo), flat_path(flat) %></div>
+          <ul class="details">
+            <li class="author"><a href="#"><%= flat.user.name %></a></li>
+            <li class="date">Aug. 24, 2015</li>
+          </ul>
+        </div>
+        <div class="description">
+          <h1>Your Cat Hero</h1>
+          <h2><%= flat.address %></h2>
+          <p> <%= flat.description %></p>
+          <p class="read-more">
+            <%= link_to 'Tenho Interese', flat_path(flat) %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+
    <div
   id="map"
   style="width: 100%;
   height: 500px;"
   data-markers="<%= @markers.to_json %>">
   </div>
+
 </div>
