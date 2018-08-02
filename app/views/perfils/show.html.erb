@@ -33,12 +33,14 @@
           <div class="well">
         <div class="tab-content">
           <div class="tab-pane fade in active" id="tab1">
-            <h2>Vous avez enregistré <strong><%= @user.animals.first.name %></strong></h2>
+          <% @user.animals.each do |x| %>
+          <h2> Vous avez enregistré :<strong><%=x[:name]%></strong><%= link_to 'Add', new_animal_path, class: "btn btn-primary" %> <%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %></h2>
+          <% end %>
           </div>
           <div class="tab-pane fade in" id="tab2">
-            <% @user.flats.each do |x| %>
-              <h2> Address :<strong><%=x[:address]%></strong></h2>
-            <% end %>
+          <% @user.flats.each do |x| %>
+          <h2> Address :<strong><%=x[:address]%></strong><%= link_to 'Add a new flat', new_flat_path, class: "btn btn-primary" %> <%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %></h2>
+          <% end %>
             <%= link_to 'Trouver son bonheur', flats_path, class: "btn btn-primary" %>
           </div>
           <div class="tab-pane fade in" id="tab3">
@@ -50,3 +52,4 @@
 
       </div>
       </div>
+

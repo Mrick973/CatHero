@@ -1,0 +1,6 @@
+ <td>
+                      <%= link_to 'Booking', new_flat_booking_path(flat), class: "btn btn-primary" %>
+                    </td>
+                    <td>
+                      <%= link_to 'Destroy',  { action: :destroy, id: flat.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </td>

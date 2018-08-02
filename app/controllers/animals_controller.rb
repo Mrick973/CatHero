@@ -1,5 +1,5 @@
 class AnimalsController < ApplicationController
- before_action :set_user, only: [:new, :create]
+ before_action :set_user, only: [:new, :create, :destroy]
 
   def new
     @animal = @user.animals.new
@@ -9,10 +9,16 @@ class AnimalsController < ApplicationController
     @animal = Animal.new(animal_params)
     @animal.user = @user
     if @animal.save
-      redirect_to flats_path(@animal.user)
+      redirect_to flats_path
     else
       render :new
     end
+  end
+
+    def destroy
+    @user = current_user
+    @animal.last.user.destroy
+    redirect_to flats_path, notice: 'Booking was successfully destroyed.'
   end
 
  private
