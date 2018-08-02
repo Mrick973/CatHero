@@ -12,8 +12,8 @@
           <th scope="col">Users</th>
           <th scope="col">Address</th>
           <th scope="col">Description</th>
-          <th scope="col">Link</th>
-          <th scope="col">Delete</th>
+<!--           <th scope="col">Link</th> -->
+<!--           <th scope="col">Delete</th> -->
           <th scope="col"></th>
         </tr>
       </thead>
@@ -29,12 +29,7 @@
                     <td>
                       <%= flat.description %>
                     </td>
-                    <td>
-                      <%= link_to 'Booking', new_flat_booking_path(flat), class: "btn btn-primary" %>
-                    </td>
-                    <td>
-                      <%= link_to 'Destroy',  { action: :destroy, id: flat.id }, method: :delete, data: { confirm: 'Are you sure?' } %>
-                    </td>
+                   
                   </tr>
                   <% end %>
       </tbody>

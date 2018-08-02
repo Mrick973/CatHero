@@ -22,7 +22,7 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     @flat.user = @user
     if @flat.save
-       redirect_to flats_path
+       redirect_to perfils_show_path
     else
       render :new
     end
