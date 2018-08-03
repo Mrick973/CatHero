@@ -6,6 +6,8 @@
 
       <%= f.input :start_date, label: 'date' %>
       <%= f.input :end_date, label: 'date ' %>
+      <%= f.input :animal_id, as: :hidden, input_html:{value: current_user.animals.first.id}%>
+      <%= f.input :flat_id, as: :hidden, input_html:{value: params[:flat_id]}%>
       <%= f.button :submit %>
     <% end %>
   </div>
