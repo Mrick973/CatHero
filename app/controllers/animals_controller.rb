@@ -16,9 +16,9 @@ class AnimalsController < ApplicationController
   end
 
     def destroy
-    @user = current_user
-    @animal.last.user.destroy
-    redirect_to flats_path, notice: 'Booking was successfully destroyed.'
+   @animal = Animal.find(params[:id])
+    @animal.destroy
+    redirect_to perfils_show_path, notice: 'Booking was successfully destroyed.'
   end
 
  private
