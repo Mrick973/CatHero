@@ -1,9 +1,9 @@
 
-  <div class="container">
-    <h1>My Bookings</h1>
+<h1>Booking</h1>
 
-    <% @bookings.each do |booking| %>
-          <h4> Name : <%=booking[:status]%>---Email : <%=booking[:start_date]%>---<%=booking[:end_date]%></h4>
-          <% end %>
-  </div>
 
+ <%=Booking.last.start_date%>
+ <hr>
+ <%=Booking.last.end_date%>
+ <hr>
+ <h4>Your Cat <strong><%=Booking.last.animal.name%> </strong> will be with <strong><%=Booking.last.flat.user.name%></strong> at this address :<strong><%=Booking.last.flat.address%></strong></h4>

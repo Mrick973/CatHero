@@ -22,7 +22,7 @@ class PerfilsController < ApplicationController
   def destroy
     @user = current_user
     @user.animals.destroy
-    redirect_to flats_path, notice: 'Booking was successfully destroyed.'
+    redirect_to perfils_show_path, notice: 'Booking was successfully destroyed.'
   end
 
  private
