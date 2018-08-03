@@ -1,3 +1,10 @@
+<div class="container booking">
+  <h2>Sua Reserva foi realizada com sucesso</h2>
+   <h4>Check in: <strong><%=Booking.last.start_date%></strong></h4>
+   <hr>
+   <h4>Check out: <strong> <%=Booking.last.end_date%></strong></h4>
+   <hr>
+
 
 <h2>Sua Reserva</h2>
  <h4>Data </h4><%=Booking.last.start_date.strftime("%d/%m/%Y")
@@ -11,3 +18,4 @@
 
 <%=Booking.count%>
 <hr>
+

@@ -43,7 +43,10 @@
                 <% @user.animals.each do |animal| %>
                   <tr>
                     <th scope="row"><strong><%=animal[:name]%></strong></th>
-                    <td><%= link_to 'Destroy', animal_path(animal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><%= link_to animal_path(animal), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                        <% end %>
+                    </td>
                   </tr>
                 <% end %>
                 <tr>
@@ -65,7 +68,10 @@
                 <% @user.flats.each do |flat| %>
                   <tr>
                     <td scope="row"><strong><%=flat[:address]%></strong></td>
-                    <td><%= link_to 'Destroy', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td><%= link_to flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      <% end %>
+                    </td>
                   </tr>
                 <% end %>
                 <tr>
