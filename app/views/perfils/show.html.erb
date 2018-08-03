@@ -40,10 +40,10 @@
                 </tr>
               </thead>
               <tbody>
-                <% @user.animals.each do |x| %>
+                <% @user.animals.each do |animal| %>
                   <tr>
-                    <th scope="row"><strong><%=x[:name]%></strong></th>
-                    <td><%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <th scope="row"><strong><%=animal[:name]%></strong></th>
+                    <td><%= link_to 'Destroy', animal_path(animal), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   </tr>
                 <% end %>
                 <tr>
@@ -62,10 +62,10 @@
                 </tr>
               </thead>
               <tbody>
-                <% @user.flats.each do |x| %>
+                <% @user.flats.each do |flat| %>
                   <tr>
-                    <td scope="row"><strong><%=x[:address]%></strong></td>
-                    <td><%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <td scope="row"><strong><%=flat[:address]%></strong></td>
+                    <td><%= link_to 'Destroy', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                   </tr>
                 <% end %>
                 <tr>
