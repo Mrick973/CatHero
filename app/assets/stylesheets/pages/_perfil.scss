@@ -32,6 +32,7 @@
     margin-left: -100px;
     margin-top: -200px;
     min-width: 130%;
+    background-color: $green;
 }
 .card.hovercard .useravatar {
     position: absolute;
@@ -79,3 +80,5 @@
 .btn-pref .btn {
     -webkit-border-radius:0 !important;
 }
+
+

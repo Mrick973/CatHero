@@ -2,17 +2,13 @@
   <div class="col-lg col-sm">
       <div class="card hovercard">
           <div class="card-background">
-              <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/8/">
-              <!-- http://lorempixel.com/850/280/people/9/ -->
+            <img alt="" src="http://lorempixel.com/100/100/people/8/">
           </div>
           <div class="useravatar">
               <img alt="" src="http://lorempixel.com/100/100/people/8/">
           </div>
-          <div class="card-info"> <span class="card-title"><strong><%= @user.name %></strong>
-            <%= link_to 'Add a new flat', new_flat_path, class: "btn btn-primary" %>
-            <%= link_to 'Add a new animal', new_animal_path, class: "btn btn-primary" %>
-
-          </span>
+          <div class="card-info">
+            <span class="card-title"><strong><%= @user.name %></strong></span>
           </div>
       </div>
       <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
@@ -36,20 +32,52 @@
           <div class="well">
         <div class="tab-content">
           <div class="tab-pane fade in active" id="tab1">
-          <% @user.animals.each do |x| %>
-          <h2> Vous avez enregistré :<strong><%=x[:name]%></strong><%= link_to 'Add', new_animal_path, class: "btn btn-primary" %> <%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %></h2>
-          <% end %>
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Pet Name</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @user.animals.each do |x| %>
+                  <tr>
+                    <th scope="row"><strong><%=x[:name]%></strong></th>
+                    <td><%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+                <tr>
+                  <td colspan="2"><%= link_to 'Add', new_animal_path, class: "btn btn-primary" %></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+
           <div class="tab-pane fade in" id="tab2">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">Address</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @user.flats.each do |x| %>
+                  <tr>
+                    <td scope="row"><strong><%=x[:address]%></strong></td>
+                    <td><%= link_to 'Destroy', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+                <tr>
+                  <td><%= link_to 'All Flats', flats_path, class: "btn btn-primary" %></td>
+                  <td><%= link_to 'Add', new_animal_path, class: "btn btn-primary" %></td>
+                </tr>
+              </tbody>
+            </table>
 
-          <% @user.flats.each do |flat| %>
-          <h2> Address :<strong><%=flat[:address]%></strong><%= link_to 'Add a new flat', new_flat_path, class: "btn btn-primary" %> <%= link_to 'Destroy', flat_path(flat), method: :delete, data: { confirm: 'Are you sure?' } %></h2>
-
-          <% end %>
-            <%= link_to 'Trouver son bonheur', flats_path, class: "btn btn-primary" %>
           </div>
           <div class="tab-pane fade in" id="tab3">
-            <h2>You need help?</h2>
+            <h2>Do You need help?</h2>
             <h3>cathero@cathero.com</h3>
           </div>
         </div>
