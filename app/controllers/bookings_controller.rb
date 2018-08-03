@@ -17,16 +17,15 @@ class BookingsController < ApplicationController
   end
 
   def create
+    @flat = Flat.find(params[:booking][:flat_id])
     @user = current_user
     @booking = Booking.new(booking_params)
     @booking.save
-    # @booking.user = @user
-    # @booking.flat = @flat
-    # if @booking.save
-    #   redirect_to booking_path
-    # else
-    #   render 'flats/show'
-    # end
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render 'flats/show'
+    end
   end
 
   # def edit

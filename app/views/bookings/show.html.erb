@@ -1,8 +1,11 @@
-<h1>Booking</h1>
 
+<h2>Sua Reserva</h2>
+ <h4>Data </h4><%=Booking.last.start_date%>
+ <hr>
+ <h4>Data </h4><%=Booking.last.end_date%>
+ <hr>
 
- <%=Booking.last.start_date%>
- <hr>
- <%=Booking.last.end_date%>
- <hr>
- <h4>Your Cat <strong><%=Booking.last.animal.name%> </strong> will be with <strong><%=Booking.last.flat.user.name%></strong> at this address :<strong><%=Booking.last.flat.address%></strong></h4>
+ <h4>Nome do seu gato : <strong><%=Booking.last.animal.name%> </strong><hr>Nome do Caregiver : <strong><%=Booking.last.flat.user.name%></strong><hr>Endereço do Caregiver : <strong><%=Booking.last.flat.address%></strong></h4>
+
+<%=Booking.count%>
+<hr>
