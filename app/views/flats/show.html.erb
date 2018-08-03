@@ -1,25 +1,26 @@
 <div class="container">
-  <h1><%= @flat.address %>Flats</h1>
-
-  <div>
-    <tr>
-      <td>
-        <%= cl_image_tag @flat.photo, height: 100, width: 170, crop: :fill %>
-      </td>
 
 
-      <td>
-        <%= @flat.address %>
-      </td>
-      <td>
-        <%= @flat.description %>
-      </td>
-      <td>
-        <%= link_to 'Back', flats_path, class: "btn btn-primary" %>
-      </td>
-      <td>
+  <div class="cards text-center">
+
+
+
+      <div class="cards_img">
+        <%= cl_image_tag @flat.photo %>
+      </div>
+
+      <div>
+        <h3><%= @flat.address %></h3>
+      </div>
+
+        <div>
+           <%= @flat.description %>
+        </div>
+
+        <div>
+          <%= link_to 'Back', flats_path, class: "btn btn-primary" %>
+
         <%= link_to 'Booking', booking_path , class: "btn btn-primary" %>
-      </td>
-    </tr>
+        </div>
   </div>
 </div>
