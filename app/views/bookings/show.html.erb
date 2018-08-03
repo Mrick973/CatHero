@@ -5,6 +5,17 @@
    <h4>Check out: <strong> <%=Booking.last.end_date%></strong></h4>
    <hr>
 
-   <h4>Nome do seu gato : <strong><%=Booking.last.animal.name%> </strong><hr>Nome do Hero cat: <strong><%=Booking.last.flat.user.name%></strong><hr>Endereço do Hero Cat : <strong><%=Booking.last.flat.address%></strong></h4>
 
-</div>
+<h2>Sua Reserva</h2>
+ <h4>Data </h4><%=Booking.last.start_date.strftime("%d/%m/%Y")
+%>
+ <hr>
+ <h4>Data </h4><%=Booking.last.end_date.strftime("%d/%m/%Y")
+%>
+ <hr>
+
+ <h4>Nome do seu gato : <strong><%=Booking.last.animal.name%> </strong><hr>Nome do Caregiver : <strong><%=Booking.last.flat.user.name%></strong><hr>Endereço do Caregiver : <strong><%=Booking.last.flat.address%></strong></h4>
+
+<%=Booking.count%>
+<hr>
+
